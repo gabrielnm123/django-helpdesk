@@ -1,13 +1,9 @@
 #!/bin/bash
 # Install extra deps from /opt/extra-deps.txt if it exists
-if [ -f /opt/extra-dependencies.txt ]; then
-    pip install -r /opt/extra-dependencies.txt
-fi
-
+pip install -r /opt/extra-dependencies.txt
 cd /opt/django-helpdesk/standalone/
-if python manage.py showmigrations | grep '\[ \]\|^[a-z]' | grep '[  ]' -B 1; then
-    python manage.py migrate --noinput                # Apply database migrations
-fi
+python manage.py migrate --noinput                # Apply database migrations
+python manage.py createsuperuser --noinput
 
 # Starting cron to check emails
 printenv > /etc/env

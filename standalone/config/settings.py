@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Read SECRET_KEY from DJANGO_HELPDESK_SECRET_KEY env var
 try:
-    SECRET_KEY = os.environ['DJANGO_HELPDESK_SECRET_KEY']
+    SECRET_KEY = os.environ.get('DJANGO_HELPDESK_SECRET_KEY')
 except KeyError:
     raise Exception("DJANGO_HELPDESK_SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*, localhost, 0.0.0.0").split(",")
 
@@ -196,9 +196,9 @@ else:
 # The most complete translations are: es-MX, ru, zh-Hans
 # Contribute to our translations via Transifex if you can!
 # See CONTRIBUTING.rst for more info.
-LANGUAGE_CODE = 'en-US'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Fortaleza'
 
 USE_I18N = True
 

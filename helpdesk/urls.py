@@ -13,7 +13,7 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from helpdesk import settings as helpdesk_settings
 from helpdesk.decorators import helpdesk_staff_member_required, protect_view
-from helpdesk.views import feeds, login, public, staff
+from helpdesk.views import feeds, login, public, staff, logout
 from helpdesk.views.api import CreateUserView, FollowUpAttachmentViewSet, FollowUpViewSet, TicketViewSet, UserTicketViewSet
 from rest_framework.routers import DefaultRouter
 
@@ -214,9 +214,7 @@ urlpatterns += [
     path("login/", login.login, name="login"),
     path(
         "logout/",
-        auth_views.LogoutView.as_view(
-            template_name="helpdesk/registration/login.html", next_page="../"
-        ),
+        logout.logout_user,
         name="logout",
     ),
     path(
