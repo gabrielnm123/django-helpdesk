@@ -1,17 +1,17 @@
 version: '2'
 services:
-  caddy:
-    image: caddy:2
-    restart: unless-stopped
+  nginx:
+    build: ./nginx
     volumes:
-      - /tmp/data/caddy/data:/data
-      - /tmp/data/caddy/config:/config
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./static:/static
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     networks:
-    - net
+      - net
+    depends_on:
+      - django-helpdesk
+    restart: unless-stopped
 
   django-helpdesk:
     build:
@@ -21,6 +21,7 @@ services:
     volumes:
       - /tmp/django-helpdesk-data:/data/
       - ./custom_navigation_header.html:/opt/django-helpdesk/helpdesk/templates/helpdesk/custom_navigation_header.html
+      - ./static:/static
     env_file:
       - docker.env
     depends_on:
@@ -50,3 +51,6 @@ services:
 networks:
   net:
     driver: bridge
+
+volumes:
+  static:
