@@ -6,7 +6,7 @@ services:
       - ./static:/static
     ports:
       - 80:80
-      - 443:443
+      # - 443:443
     networks:
       - net
     depends_on:
