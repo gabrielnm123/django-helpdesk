@@ -13,7 +13,6 @@ RUN pip3 install -r /opt/django-helpdesk/standalone/extra-requirements.txt
 COPY . /opt/django-helpdesk
 WORKDIR /opt/django-helpdesk
 RUN pip3 install -e .
-RUN python3 standalone/manage.py collectstatic --noinput
 
 RUN echo "* * * * * root . /etc/env && /usr/local/bin/python3 /opt/django-helpdesk/standalone/manage.py get_email >> /var/log/cron.log 2>&1" > /etc/crontab
 RUN chmod 0644 /etc/crontab
