@@ -29,6 +29,7 @@ except KeyError:
 DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*, localhost, 0.0.0.0").split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
