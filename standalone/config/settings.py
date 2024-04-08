@@ -26,7 +26,7 @@ except KeyError:
     raise Exception("DJANGO_HELPDESK_SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*, localhost, 0.0.0.0").split(",")
 
