@@ -27,6 +27,7 @@ services:
       - postgres
     networks:
       - net
+    restart: unless-stopped
 
   postgres:
     image: postgres:12-bullseye
@@ -36,6 +37,7 @@ services:
       - docker.env
     networks:
       - net
+    restart: unless-stopped
 
   adminer:
     image: adminer
