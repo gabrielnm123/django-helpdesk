@@ -47,6 +47,8 @@ services:
       - 8080:8080
     networks:
       - net
+    depends_on:
+      - postgres
     restart: unless-stopped
 
 networks:
