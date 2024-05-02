@@ -218,7 +218,7 @@ def normpath(*args):
 
 
 PROJECT_ROOT = normpath(__file__, "..", "..")
-STATIC_ROOT = os.environ.get("DJANGO_HELPDESK_STATIC_ROOT", normpath(PROJECT_ROOT, "static"))
+STATIC_ROOT = os.environ.get("DJANGO_HELPDESK_STATIC_ROOT", normpath(PROJECT_ROOT, "/static/"))
 STATIC_URL = os.environ.get("DJANGO_HELPDESK_STATIC_URL", "/static/")
 
 
