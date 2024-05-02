@@ -13,13 +13,4 @@ python manage.py collectstatic --noinput
 
 # Start Gunicorn processes
 echo Starting Gunicorn.
-exec gunicorn standalone.config.wsgi:application \
-	   --name django-helpdesk \
-	   --bind 0.0.0.0:${GUNICORN_PORT:-"8000"} \
-	   --workers ${GUNICORN_NUM_WORKERS:-"6"} \
-	   --timeout ${GUNICORN_TIMEOUT:-"60"} \
-	   --preload \
-	   --log-level=debug \
-	   --log-file=- \
-	   --access-logfile=- \
-	   "$@"
+gunicorn config.wsgi:application --bind 0.0.0.0:8000

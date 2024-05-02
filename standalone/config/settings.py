@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
+import socket
+
+hostname = socket.gethostname()
+
+ip_address = socket.gethostbyname(hostname)
 
 load_dotenv()
 
@@ -32,7 +37,8 @@ except KeyError:
 DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*, localhost, 0.0.0.0").split(",")
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", 'http://localhost').split(",")
+CSRF_TRUSTED_ORIGINS.append(f'http://{ip_address}')
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
