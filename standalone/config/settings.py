@@ -12,11 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
-import socket
-
-hostname = socket.gethostname()
-
-ip_address = socket.gethostbyname(hostname)
 
 load_dotenv()
 
@@ -34,15 +29,12 @@ except KeyError:
     raise Exception("DJANGO_HELPDESK_SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*, localhost, 0.0.0.0").split(",")
+ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*,localhost,0.0.0.0").split(",")
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", 'http://localhost').split(",")
-CSRF_TRUSTED_ORIGINS.append(f'http://{ip_address}')
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 
 # Application definition
 
