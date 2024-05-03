@@ -24,15 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Read SECRET_KEY from DJANGO_HELPDESK_SECRET_KEY env var
 try:
-    SECRET_KEY = os.environ.get('DJANGO_HELPDESK_SECRET_KEY')
+    SECRET_KEY = os.getenv('DJANGO_HELPDESK_SECRET_KEY', '*h_4!wp9e05by$1@b$#0kor%^1okg@u)or=&upn%mu&e591)_x')
 except KeyError:
     raise Exception("DJANGO_HELPDESK_SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_HELPDESK_ALLOWED_HOSTS", "*,localhost,0.0.0.0").split(",")
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", 'http://localhost').split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_HELPDESK_ALLOWED_HOSTS", "localhost,0.0.0.0").split(",")
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", 'http://localhost,http://0.0.0.0').split(",")
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -96,31 +96,31 @@ WSGI_APPLICATION = 'standalone.config.wsgi.application'
 # Some common settings are below.
 
 HELPDESK_DEFAULT_SETTINGS = {
-    'use_email_as_submitter': os.environ.get('HELPDESK_USE_EMAIL_AS_SUBMITTER', 'True') == 'True',
-    'email_on_ticket_assign': os.environ.get('HELPDESK_EMAIL_ON_TICKET_ASSIGN', 'True') == 'True',
-    'email_on_ticket_change': os.environ.get('HELPDESK_EMAIL_ON_TICKET_CHANGE', 'True') == 'True',
-    'login_view_ticketlist': os.environ.get('HELPDESK_LOGIN_VIEW_TICKETLIST', 'True') == 'True',
-    'email_on_ticket_apichange': os.environ.get('HELPDESK_EMAIL_ON_TICKET_APICHANGE', 'True') == 'True',
-    'preset_replies': os.environ.get('HELPDESK_PRESET_REPLIES', 'True') == 'True',
-    'tickets_per_page': os.environ.get('HELPDESK_TICKETS_PER_PAGE', '25'),
+    'use_email_as_submitter': os.getenv('HELPDESK_USE_EMAIL_AS_SUBMITTER', 'True') == 'True',
+    'email_on_ticket_assign': os.getenv('HELPDESK_EMAIL_ON_TICKET_ASSIGN', 'True') == 'True',
+    'email_on_ticket_change': os.getenv('HELPDESK_EMAIL_ON_TICKET_CHANGE', 'True') == 'True',
+    'login_view_ticketlist': os.getenv('HELPDESK_LOGIN_VIEW_TICKETLIST', 'True') == 'True',
+    'email_on_ticket_apichange': os.getenv('HELPDESK_EMAIL_ON_TICKET_APICHANGE', 'True') == 'True',
+    'preset_replies': os.getenv('HELPDESK_PRESET_REPLIES', 'True') == 'True',
+    'tickets_per_page': os.getenv('HELPDESK_TICKETS_PER_PAGE', '25'),
 }
 
 # Should the public web portal be enabled?
-HELPDESK_PUBLIC_ENABLED = os.environ.get('HELPDESK_PUBLIC_ENABLED', 'True') == 'True'
-HELPDESK_VIEW_A_TICKET_PUBLIC = os.environ.get('HELPDESK_VIEW_A_TICKET_PUBLIC', 'True') == 'True'
-HELPDESK_SUBMIT_A_TICKET_PUBLIC = os.environ.get('HELPDESK_SUBMIT_A_TICKET_PUBLIC', 'True') == 'True'
+HELPDESK_PUBLIC_ENABLED = os.getenv('HELPDESK_PUBLIC_ENABLED', 'True') == 'True'
+HELPDESK_VIEW_A_TICKET_PUBLIC = os.getenv('HELPDESK_VIEW_A_TICKET_PUBLIC', 'True') == 'True'
+HELPDESK_SUBMIT_A_TICKET_PUBLIC = os.getenv('HELPDESK_SUBMIT_A_TICKET_PUBLIC', 'True') == 'True'
 
 # Should the Knowledgebase be enabled?
-HELPDESK_KB_ENABLED = os.environ.get('HELPDESK_KB_ENABLED', 'True') == 'True'
+HELPDESK_KB_ENABLED = os.getenv('HELPDESK_KB_ENABLED', 'True') == 'True'
 
-HELPDESK_TICKETS_TIMELINE_ENABLED = os.environ.get('HELPDESK_TICKETS_TIMELINE_ENABLED', 'True') == 'True'
+HELPDESK_TICKETS_TIMELINE_ENABLED = os.getenv('HELPDESK_TICKETS_TIMELINE_ENABLED', 'True') == 'True'
 
 # Allow users to change their passwords
-HELPDESK_SHOW_CHANGE_PASSWORD = os.environ.get('HELPDESK_SHOW_CHANGE_PASSWORD', 'True') == 'True'
+HELPDESK_SHOW_CHANGE_PASSWORD = os.getenv('HELPDESK_SHOW_CHANGE_PASSWORD', 'True') == 'True'
 
 # Instead of showing the public web portal first,
 # we can instead redirect users straight to the login page.
-HELPDESK_REDIRECT_TO_LOGIN_BY_DEFAULT = os.environ.get('HELPDESK_REDIRECT_TO_LOGIN_BY_DEFAULT', 'False') == 'True'
+HELPDESK_REDIRECT_TO_LOGIN_BY_DEFAULT = os.getenv('HELPDESK_REDIRECT_TO_LOGIN_BY_DEFAULT', 'False') == 'True'
 LOGIN_URL = 'helpdesk:login'
 LOGIN_REDIRECT_URL = 'helpdesk:home'
 
@@ -129,11 +129,11 @@ DATABASES = {
   # Setup postgress db with postgres as host and db name and read password from env var
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'postgres'),
-        'USER': os.environ.get('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'postgres'),
-        'HOST': os.environ.get('POSTGRES_HOST', 'postgres'),
-        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+        'NAME': os.getenv('POSTGRES_DB', 'postgres'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': os.getenv('POSTGRES_HOST', 'postgres'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }
 
@@ -175,10 +175,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # This demo uses the console backend, which simply prints emails to the console
 # rather than actually sending them out.
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'example@example.com')
-SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'example@example.com')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'example@example.com')
+SERVER_EMAIL = os.getenv('SERVER_EMAIL', 'example@example.com')
 
-if os.environ.get('EMAIL_HOST', None):
+if os.getenv('EMAIL_HOST', None):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     try:
         EMAIL_HOST = os.environ['EMAIL_HOST']
@@ -216,8 +216,8 @@ def normpath(*args):
 
 
 PROJECT_ROOT = normpath(__file__, "..", "..")
-STATIC_ROOT = os.environ.get("DJANGO_HELPDESK_STATIC_ROOT", normpath(PROJECT_ROOT, "/static/"))
-STATIC_URL = os.environ.get("DJANGO_HELPDESK_STATIC_URL", "/static/")
+STATIC_ROOT = os.getenv("DJANGO_HELPDESK_STATIC_ROOT", normpath(PROJECT_ROOT, "/static/"))
+STATIC_URL = os.getenv("DJANGO_HELPDESK_STATIC_URL", "/static/")
 
 
 # MEDIA_ROOT is where media uploads are stored.
