@@ -32,11 +32,11 @@ msgstr ""
 #: templates/helpdesk/ticket_list.html:199 views/staff.py:976
 #: views/staff.py:982 views/staff.py:988
 msgid "Queue"
-msgstr "Fila"
+msgstr "Setor"
 
 #: forms.py:122
 msgid "Summary of the problem"
-msgstr "Resumo do problema"
+msgstr "Assunto"
 
 #: forms.py:127
 msgid "Submitter E-Mail Address"
@@ -226,7 +226,7 @@ msgstr "Endereço de E-Mail"
 msgid ""
 "All outgoing e-mails for this queue will use this e-mail address. If you use"
 " IMAP or POP3, this should be the e-mail address for that mailbox."
-msgstr "Todos os e-mails enviados para essa fila vai usar este endereço de e-mail. Se você usar IMAP ou POP3, este deve ser o endereço de email para essa caixa de correio."
+msgstr "Todos os e-mails enviados para essa setor vai usar este endereço de e-mail. Se você usar IMAP ou POP3, este deve ser o endereço de email para essa caixa de correio."
 
 #: models.py:52 models.py:766
 msgid "Locale"
@@ -236,7 +236,7 @@ msgstr "Localidade"
 msgid ""
 "Locale of this queue. All correspondence in this queue will be in this "
 "language."
-msgstr "Linguagem desta fila. Todas as respostas automaticas estarão nesta linguagem"
+msgstr "Linguagem desta setor. Todas as respostas automaticas estarão nesta linguagem"
 
 #: models.py:60
 msgid "Allow Public Submission?"
@@ -273,7 +273,7 @@ msgid ""
 "If an e-mail address is entered here, then it will receive notification of "
 "all new tickets created for this queue. Enter a comma between multiple "
 "e-mail addresses."
-msgstr "Se um endereço de e-mail está inserido aqui,  ele vai receber a notificação de todos os novos tickets criados para essa fila. Coloque uma vírgula entre vários endereços de e-mail."
+msgstr "Se um endereço de e-mail está inserido aqui,  ele vai receber a notificação de todos os novos tickets criados para essa setor. Coloque uma vírgula entre vários endereços de e-mail."
 
 #: models.py:94
 msgid "Updated Ticket CC Address"
@@ -284,7 +284,7 @@ msgid ""
 "If an e-mail address is entered here, then it will receive notification of "
 "all activity (new tickets, closed tickets, updates, reassignments, etc) for "
 "this queue. Separate multiple addresses with a comma."
-msgstr "Se um endereço de e-mail está inserido aqui, então ele vai receber uma notificação de todas as atividades (novos tickets, tickets fechados, atualizações, remanejamentos, etc) para esta fila. Separe vários endereços com uma vírgula."
+msgstr "Se um endereço de e-mail está inserido aqui, então ele vai receber uma notificação de todas as atividades (novos tickets, tickets fechados, atualizações, remanejamentos, etc) para esta setor. Separe vários endereços com uma vírgula."
 
 #: models.py:105
 msgid "E-Mail Box Type"
@@ -360,7 +360,7 @@ msgid ""
 "If using IMAP, what folder do you wish to fetch messages from? This allows "
 "you to use one IMAP account for multiple queues, by filtering messages on "
 "your IMAP server into separate folders. Default: INBOX."
-msgstr "Se estiver usando IMAP, qual pasta você deseja buscar as mensagens? Isso permite que você use uma conta IMAP para várias filas, filtrando mensagens em seu servidor IMAP em pastas separadas. Padrão: INBOX."
+msgstr "Se estiver usando IMAP, qual pasta você deseja buscar as mensagens? Isso permite que você use uma conta IMAP para várias setores, filtrando mensagens em seu servidor IMAP em pastas separadas. Padrão: INBOX."
 
 #: models.py:168
 msgid "E-Mail Check Interval"
@@ -398,25 +398,21 @@ msgstr "Fechado"
 msgid "Duplicate"
 msgstr "Duplicado"
 
-#: models.py:248
-msgid "1. Critical"
-msgstr "1. Crítico"
-
 #: models.py:249
-msgid "2. High"
-msgstr "2. Alto"
+msgid "1. High"
+msgstr "1. Alto"
 
 #: models.py:250
-msgid "3. Normal"
-msgstr "3. Normal"
+msgid "2. Normal"
+msgstr "2. Normal"
 
 #: models.py:251
-msgid "4. Low"
-msgstr "4. Baixo"
+msgid "3. Low"
+msgstr "3. Baixo"
 
 #: models.py:252
-msgid "5. Very Low"
-msgstr "5. Muito baixo"
+msgid "4. Very Low"
+msgstr "4. Muito baixo"
 
 #: models.py:266 templates/helpdesk/dashboard.html:77
 #: templates/helpdesk/ticket_list.html:72
@@ -595,7 +591,7 @@ msgstr "Tamanho deste arquivo em bytes"
 msgid ""
 "Leave blank to allow this reply to be used for all queues, or select those "
 "queues you wish to limit this reply to."
-msgstr "Deixe em branco para permitir que essa resposta seja usada para todas as filas, ou selecione as filas que você deseja limitar esta resposta."
+msgstr "Deixe em branco para permitir que essa resposta seja usada para todas as setores, ou selecione as setores que você deseja limitar esta resposta."
 
 #: models.py:668 models.py:709 models.py:1003
 #: templates/helpdesk/email_ignore_list.html:13
@@ -615,13 +611,13 @@ msgstr "Corpo"
 msgid ""
 "Context available: {{ ticket }} - ticket object (eg {{ ticket.title }}); {{ "
 "queue }} - The queue; and {{ user }} - the current user."
-msgstr "Contexto disponível: {{ ticket }} - objeto ticket (ex: {{ ticket.title }}); {{ queue }} - A fila; e {{ user }} - o usuário atual."
+msgstr "Contexto disponível: {{ ticket }} - objeto ticket (ex: {{ ticket.title }}); {{ queue }} - A setor; e {{ user }} - o usuário atual."
 
 #: models.py:703
 msgid ""
 "Leave blank for this exclusion to be applied to all queues, or select those "
 "queues you wish to exclude with this entry."
-msgstr "Deixe em branco para esta exclusão seja aplicado a todas as filas, ou selecione as filas que deseja excluir com esta entrada."
+msgstr "Deixe em branco para esta exclusão seja aplicado a todas as setores, ou selecione as setores que deseja excluir com esta entrada."
 
 #: models.py:715
 msgid "Date on which escalation should not happen"
@@ -753,7 +749,7 @@ msgstr "Esta é uma representação codificada em base64 de um dicionário Pytho
 msgid ""
 "Leave blank for this e-mail to be ignored on all queues, or select those "
 "queues you wish to ignore this e-mail for."
-msgstr "Deixe em branco para que este e-mail seja ignorado em todas as filas, ou selecione as filas que você deseja ignorar este e-mail para."
+msgstr "Deixe em branco para que este e-mail seja ignorado em todas as setores, ou selecione as setores que você deseja ignorar este e-mail para."
 
 #: models.py:1009
 msgid "Date on which this e-mail address was added"
@@ -1248,7 +1244,7 @@ msgstr "Data Adicionada"
 
 #: templates/helpdesk/email_ignore_list.html:13
 msgid "Queues"
-msgstr "Filas"
+msgstr "Setores"
 
 #: templates/helpdesk/email_ignore_list.html:13
 msgid "Keep in mailbox?"
@@ -1468,7 +1464,7 @@ msgstr "Erro:"
 #: templates/helpdesk/public_view_ticket.html:8
 #, python-format
 msgid "Queue: %(queue_name)s"
-msgstr "Fila: %(queue_name)s"
+msgstr "Setor: %(queue_name)s"
 
 #: templates/helpdesk/public_view_ticket.html:11
 #: templates/helpdesk/ticket_desc_table.html:16
@@ -1518,7 +1514,7 @@ msgstr "Prioridade"
 
 #: templates/helpdesk/report_index.html:16
 msgid "by Queue"
-msgstr "por Fila"
+msgstr "por Setor"
 
 #: templates/helpdesk/report_index.html:17
 #: templates/helpdesk/report_index.html:25
@@ -1532,7 +1528,7 @@ msgstr "Mês"
 
 #: templates/helpdesk/report_index.html:22
 msgid "Reports By Queue"
-msgstr "Relatórios por Fila"
+msgstr "Relatórios por Setor"
 
 #: templates/helpdesk/report_output.html:19
 msgid ""
@@ -1589,11 +1585,11 @@ msgid ""
 "all tickets, for each of the queues in your helpdesk. For example, if you "
 "manage the staff who utilise a particular queue, this may be used to view "
 "new tickets coming into that queue."
-msgstr "Estes feeds RSS permitem visualizar um resumo de seus próprios tickets, ou todos os tickets, para cada uma das filas em seu sistema. Por exemplo, se você gerenciar o pessoal que utiliza uma fila particular, isto pode ser usado para visualizar novos tickets que entram nessa fila."
+msgstr "Estes feeds RSS permitem visualizar um resumo de seus próprios tickets, ou todos os tickets, para cada uma das setores em seu sistema. Por exemplo, se você gerenciar o pessoal que utiliza uma setor particular, isto pode ser usado para visualizar novos tickets que entram nessa setor."
 
 #: templates/helpdesk/rss_list.html:22
 msgid "Per-Queue Feeds"
-msgstr "Feeds por fila"
+msgstr "Feeds por setor"
 
 #: templates/helpdesk/rss_list.html:23
 msgid "All Open Tickets"
@@ -1616,7 +1612,7 @@ msgstr "Lista de E-mails ignorados"
 
 #: templates/helpdesk/system_settings.html:12
 msgid "Maintain Queues"
-msgstr "Filas"
+msgstr "Setores"
 
 #: templates/helpdesk/system_settings.html:13
 msgid "Maintain Pre-Set Replies"
@@ -1676,7 +1672,7 @@ msgstr "Comentário / Solução"
 msgid ""
 "You can insert ticket and queue details in your message. For more "
 "information, see the <a href='../../help/context/'>context help page</a>."
-msgstr "Você pode inserir ticket e detalhes de fila em sua mensagem. Para mais informações, consulte a <a href='../../help/context/'>página de ajuda</ a>."
+msgstr "Você pode inserir ticket e detalhes de setor em sua mensagem. Para mais informações, consulte a <a href='../../help/context/'>página de ajuda</ a>."
 
 #: templates/helpdesk/ticket.html:128
 msgid ""
@@ -1702,7 +1698,7 @@ msgstr "Alterar Mais Detalhes &raquo;"
 #: templates/helpdesk/ticket_list.html:87
 #: templates/helpdesk/ticket_list.html:199
 msgid "Owner"
-msgstr "Dono"
+msgstr "Proprietário"
 
 #: templates/helpdesk/ticket.html:174
 msgid "Unassign"
@@ -1830,7 +1826,7 @@ msgstr "Em espera"
 #: templates/helpdesk/ticket_desc_table.html:13
 #, python-format
 msgid "Queue: %(queue)s"
-msgstr "Fila: %(queue)s"
+msgstr "Setor: %(queue)s"
 
 #: templates/helpdesk/ticket_desc_table.html:21
 msgid "Assigned To"
@@ -1934,7 +1930,7 @@ msgstr "Segure a tecla Ctrl para poder selecionar mais de opção"
 
 #: templates/helpdesk/ticket_list.html:110
 msgid "Queue(s)"
-msgstr "Fila(s)"
+msgstr "Setor(es)"
 
 #: templates/helpdesk/ticket_list.html:111
 #: templates/helpdesk/ticket_list.html:117
@@ -2134,7 +2130,7 @@ msgstr "Senha"
 #: views/feeds.py:35
 #, python-format
 msgid "Helpdesk: Open Tickets in queue %(queue)s for %(username)s"
-msgstr "Helpdesk: Tickets Abertos na fila %(queue)s para %(username)s"
+msgstr "Helpdesk: Tickets Abertos na setor %(queue)s para %(username)s"
 
 #: views/feeds.py:40
 #, python-format
@@ -2144,7 +2140,7 @@ msgstr "Helpdesk: Open for Tickets %(username)s "
 #: views/feeds.py:46
 #, python-format
 msgid "Open and Reopened Tickets in queue %(queue)s for %(username)s"
-msgstr "Tickets abertos e reabertos na fila %(queue)s  para %(username)s "
+msgstr "Tickets abertos e reabertos na setor %(queue)s  para %(username)s "
 
 #: views/feeds.py:51
 #, python-format
@@ -2172,12 +2168,12 @@ msgstr "Acompanhamentos rencents, como e-mail de respostas comentários, anexos 
 #: views/feeds.py:140
 #, python-format
 msgid "Helpdesk: Open Tickets in queue %(queue)s"
-msgstr "Helpdesk: Tickets Abertos na fila %(queue)s"
+msgstr "Helpdesk: Tickets Abertos na setor %(queue)s"
 
 #: views/feeds.py:145
 #, python-format
 msgid "Open and Reopened Tickets in queue %(queue)s"
-msgstr "Abrir e Reabrir Tickets da Fila %(queue)s"
+msgstr "Abrir e Reabrir Tickets da Setor %(queue)s"
 
 #: views/public.py:91
 msgid "Invalid ticket ID or e-mail address. Please try again."
@@ -2289,7 +2285,7 @@ msgstr "Usuário por Prioridade"
 
 #: views/staff.py:957
 msgid "User by Queue"
-msgstr "Usuário por fila"
+msgstr "Usuário por setor"
 
 #: views/staff.py:963
 msgid "User by Status"
@@ -2301,12 +2297,27 @@ msgstr "Usuário por mês"
 
 #: views/staff.py:975
 msgid "Queue by Priority"
-msgstr "Fila por prioridade"
+msgstr "Setor por prioridade"
 
 #: views/staff.py:981
 msgid "Queue by Status"
-msgstr "Fila por Status"
+msgstr "Setor por Status"
 
 #: views/staff.py:987
 msgid "Queue by Month"
-msgstr "Fila por Mês"
+msgstr "Setor por Mês"
+
+msgid "Column visibility"
+msgstr "Visibilidade da Coluna"
+
+msgid "Submitter"
+msgstr "Remetente"
+
+msgid "Due Date"
+msgstr "Ocorrido em"
+
+msgid "Click here to subscribe yourself to this ticket, if you want to receive an e-mail whenever this ticket is updated."
+msgstr "Clique aqui para se inscrever ticket, se você quiser receber um e-mail sempre que este ticket for atualizado."
+
+msgid "No saved queries currently available. You can create one in the All Tickets page."
+msgstr "Nenhuma consulta salva disponível no momento. Você pode criar uma página Todos os Tickets."

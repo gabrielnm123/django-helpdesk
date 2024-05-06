@@ -141,11 +141,10 @@ TICKET_STATUS_CHOICES_FLOW = getattr(settings,
 
 # Ticket priority choices
 DEFAULT_TICKET_PRIORITY_CHOICES = (
-    (1, _('1. Critical')),
-    (2, _('2. High')),
-    (3, _('3. Normal')),
-    (4, _('4. Low')),
-    (5, _('5. Very Low')),
+    (1, _('1. High')),
+    (2, _('2. Normal')),
+    (3, _('3. Low')),
+    (4, _('4. Very Low')),
 )
 TICKET_PRIORITY_CHOICES = getattr(settings,
                                   'HELPDESK_TICKET_PRIORITY_CHOICES',
