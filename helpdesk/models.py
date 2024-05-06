@@ -802,7 +802,7 @@ class Ticket(models.Model):
             self.created = timezone.now()
 
         if not self.priority:
-            self.priority = 3
+            self.priority = 2
 
         self.modified = timezone.now()
 
