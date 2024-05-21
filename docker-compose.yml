@@ -5,4 +5,9 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8001:8080
+      - 8080:8080
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '0.5'
+    #       memory: 256M

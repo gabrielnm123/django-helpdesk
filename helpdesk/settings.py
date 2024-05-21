@@ -106,19 +106,18 @@ ALLOWED_URL_SCHEMES = getattr(settings, 'ALLOWED_URL_SCHEMES', (
 # Ticket status choices
 OPEN_STATUS = getattr(settings, 'HELPDESK_TICKET_OPEN_STATUS', 1)
 REOPENED_STATUS = getattr(settings, 'HELPDESK_TICKET_REOPENED_STATUS', 2)
-RESOLVED_STATUS = getattr(settings, 'HELPDESK_TICKET_RESOLVED_STATUS', 3)
-CLOSED_STATUS = getattr(settings, 'HELPDESK_TICKET_CLOSED_STATUS', 4)
-DUPLICATE_STATUS = getattr(settings, 'HELPDESK_TICKET_DUPLICATE_STATUS', 5)
+COMPLETED_STATUS = getattr(settings, 'HELPDESK_TICKET_COMPLETED_STATUS', 3)
+PENDING_STATUS = getattr(settings, 'HELPDESK_TICKET_PENDING_STATUS', 4)
+# DUPLICATE_STATUS = getattr(settings, 'HELPDESK_TICKET_DUPLICATE_STATUS', 5)
 
 DEFAULT_TICKET_STATUS_CHOICES = (
     (OPEN_STATUS, _('Open')),
     (REOPENED_STATUS, _('Reopened')),
-    (RESOLVED_STATUS, _('Resolved')),
-    (CLOSED_STATUS, _('Closed')),
-    (DUPLICATE_STATUS, _('Duplicate')),
+    (COMPLETED_STATUS, _('Completed')),
+    (PENDING_STATUS, _('Pending')),
 )
 TICKET_STATUS_CHOICES = getattr(settings,
-                                'HELPDESK_TICKET_STATUS_CHOICES',
+                                'HELPDESK_TICKET_STATUS_CHOICES',   
                                 DEFAULT_TICKET_STATUS_CHOICES)
 
 # List of status choices considered as "open"
