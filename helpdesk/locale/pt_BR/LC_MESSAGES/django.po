@@ -2345,3 +2345,30 @@ msgstr "Inverter"
 
 msgid "Homepage"
 msgstr "Página Inicial"
+
+msgid "Query Results"
+msgstr "Resultados da Consulta"
+
+msgid "Overview"
+msgstr "Visão geral"
+
+msgid "Timeline"
+msgstr "Linha do Tempo"
+
+msgid "Add filter"
+msgstr "Adicionar Filtro"
+
+msgid "Apply Filters"
+msgstr "Aplicar Filtros"
+
+msgid "We have listed a number of Knowledgebase articles for your perusal in the following categories. Please check to see if any of these articles address your problem prior to opening a support ticket."
+msgstr "Listamos uma série de artigos da Base de Conhecimento para sua análise nas seguintes categorias. Verifique se algum desses artigos aborda seu problema antes de abrir um tíquete de suporte."
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+msgstr "Por favor, digite sua senha antiga, por segurança, e digite sua nova senha duas vezes para que possamos verificar se você a digitou corretamente."

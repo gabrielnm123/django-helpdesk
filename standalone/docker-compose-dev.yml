@@ -13,7 +13,9 @@ services:
     restart: unless-stopped
 
   django-helpdesk:
-    build: ./Dockerfile-dev
+    build:
+      context: ..
+      dockerfile: standalone/Dockerfile-dev
     user: root
     volumes:
       - /tmp/django-helpdesk-data:/data/
