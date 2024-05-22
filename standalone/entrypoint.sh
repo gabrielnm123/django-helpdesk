@@ -5,9 +5,9 @@ if [ -f /opt/extra-dependencies.txt ]; then
 fi
 
 cd /opt/django-helpdesk/standalone/
-if python manage.py showmigrations | grep '\[ \]\|^[a-z]' | grep '[  ]' -B 1; then
-    python manage.py migrate --noinput                # Apply database migrations
-fi
+python manage.py makemigrations --noinput
+python manage.py migrate --noinput                # Apply database migrations
+python manage.py createsuperuser --noinput
 
 # Starting cron to check emails
 printenv > /etc/env

@@ -2321,3 +2321,27 @@ msgstr "Clique aqui para se inscrever ticket, se você quiser receber um e-mail 
 
 msgid "No saved queries currently available. You can create one in the All Tickets page."
 msgstr "Nenhuma consulta salva disponível no momento. Você pode criar uma página Todos os Tickets."
+
+msgid "Completed"
+msgstr "Concluído"
+
+msgid "Pending"
+msgstr "Pendente"
+
+msgid "My Tickets"
+msgstr "Meus Tickets"
+
+msgid "All Tickets"
+msgstr "Todos os Tickets"
+
+msgid "Saved Queries"
+msgstr "Consultas Salvas"
+
+msgid "Reports"
+msgstr "Relatórios"
+
+msgid "Invert"
+msgstr "Inverter"
+
+msgid "Homepage"
+msgstr "Página Inicial"
