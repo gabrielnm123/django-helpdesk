@@ -1,11 +1,21 @@
-FROM python:3.10-slim-bullseye
+# Use uma imagem base do Python
+FROM python:3.10-slim
 LABEL src=https://github.com/django-helpdesk/django-helpdesk
-RUN apt-get update
-RUN apt-get install -yqq \
-   postgresql-common \
-   postgresql-client \
-   cron \
-   git
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libpq-dev \
+    postgresql-common \
+    postgresql-client \
+    cron \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt /opt/django-helpdesk/requirements.txt
 COPY standalone/extra-requirements.txt /opt/django-helpdesk/standalone/extra-requirements.txt
 RUN pip3 install -r /opt/django-helpdesk/requirements.txt
