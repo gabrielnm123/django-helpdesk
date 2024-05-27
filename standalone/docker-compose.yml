@@ -27,6 +27,8 @@ services:
     networks:
       - net
     restart: unless-stopped
+    stdin_open: true
+    tty: true
 
   postgres:
     image: postgres:12-bullseye

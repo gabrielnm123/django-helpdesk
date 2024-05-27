@@ -121,7 +121,7 @@ TICKET_STATUS_CHOICES = getattr(settings,
                                 DEFAULT_TICKET_STATUS_CHOICES)
 
 # List of status choices considered as "open"
-DEFAULT_TICKET_OPEN_STATUSES = (OPEN_STATUS, REOPENED_STATUS)       
+DEFAULT_TICKET_OPEN_STATUSES = (OPEN_STATUS, REOPENED_STATUS, PENDING_STATUS)    
 TICKET_OPEN_STATUSES = getattr(settings,
                                'HELPDESK_TICKET_OPEN_STATUSES',
                                DEFAULT_TICKET_OPEN_STATUSES)

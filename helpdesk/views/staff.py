@@ -500,6 +500,7 @@ def return_to_ticket(user, helpdesk_settings, ticket):
     """Helper function for update_ticket"""
 
     if is_helpdesk_staff(user):
+        # return redirect('/tickets')
         return HttpResponseRedirect(ticket.get_absolute_url())
     else:
         return HttpResponseRedirect(ticket.ticket_url)
@@ -856,7 +857,7 @@ def ticket_list(request):
     }
     default_query_params = {
         'filtering': {
-            'status__in': [1, 2],
+            'status__in': [1], # padrão do status
         },
         'sorting': 'created',
         'search_string': '',
@@ -1150,9 +1151,9 @@ def report_index(request):
         dash_ticket = {
             'queue': queue.id,
             'name': queue.title,
-            'open': queue.ticket_set.filter(status__in=[1, 2]).count(),
+            'open': queue.ticket_set.filter(status__in=[1, 2, 4]).count(),
             'resolved': queue.ticket_set.filter(status=3).count(),
-            'closed': queue.ticket_set.filter(status=4).count(),
+            'closed': queue.ticket_set.filter(status=3).count(),
             'time_spent': format_time_spent(queue.time_spent),
             'dedicated_time': format_time_spent(queue.dedicated_time)
         }
