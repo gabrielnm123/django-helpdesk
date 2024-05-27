@@ -29,7 +29,7 @@ except KeyError:
     raise Exception("DJANGO_HELPDESK_SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = os.getenv("DJANGO_HELPDESK_ALLOWED_HOSTS", "localhost,0.0.0.0").split(",")
 CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", 'http://localhost,http://0.0.0.0').split(",")
