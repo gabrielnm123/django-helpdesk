@@ -250,7 +250,7 @@ def view_ticket(request, ticket_id):
             subscribe_to_ticket_updates(ticket, request.user)
             return HttpResponseRedirect(reverse('helpdesk:view', args=[ticket.id]))
 
-    if 'close' in request.GET and ticket.status == Ticket.RESOLVED_STATUS:
+    if 'close' in request.GET and ticket.status == Ticket.COMPLETED_STATUS:
         if not ticket.assigned_to:
             owner = 0
         else:
@@ -568,25 +568,25 @@ def mass_update(request):
                 public=False,
                 user=request.user
             )
-        elif action == 'close' and t.status != Ticket.CLOSED_STATUS:
-            t.status = Ticket.CLOSED_STATUS
+        elif action == 'close' and t.status != Ticket.COMPLETED_STATUS:
+            t.status = Ticket.COMPLETED_STATUS
             t.save()
             t.followup_set.create(
                 date=timezone.now(),
                 title=_('Closed in bulk update'),
                 public=False,
                 user=request.user,
-                new_status=Ticket.CLOSED_STATUS
+                new_status=Ticket.COMPLETED_STATUS
             )
-        elif action == 'close_public' and t.status != Ticket.CLOSED_STATUS:
-            t.status = Ticket.CLOSED_STATUS
+        elif action == 'close_public' and t.status != Ticket.COMPLETED_STATUS:
+            t.status = Ticket.COMPLETED_STATUS
             t.save()
             t.followup_set.create(
                 date=timezone.now(),
                 title=_('Closed in bulk update'),
                 public=True,
                 user=request.user,
-                new_status=Ticket.CLOSED_STATUS
+                new_status=Ticket.COMPLETED_STATUS
             )
             # Send email to Submitter, Owner, Queue CC
             context = safe_template_context(t)
@@ -1610,7 +1610,7 @@ def calc_average_nbr_days_until_ticket_resolved(Tickets):
 
 def calc_basic_ticket_stats(Tickets):
     # all not closed tickets (open, reopened, resolved,) - independent of user
-    all_open_tickets = Tickets.exclude(status=Ticket.CLOSED_STATUS)
+    all_open_tickets = Tickets.exclude(status=Ticket.COMPLETED_STATUS)
     today = datetime.today()
 
     date_30 = date_rel_to_today(today, 30)
@@ -1644,7 +1644,7 @@ def calc_basic_ticket_stats(Tickets):
                 sort_string('', date_60_str), ])
 
     # all closed tickets - independent of user.
-    all_closed_tickets = Tickets.filter(status=Ticket.CLOSED_STATUS)
+    all_closed_tickets = Tickets.filter(status=Ticket.COMPLETED_STATUS)
     average_nbr_days_until_ticket_closed = \
         calc_average_nbr_days_until_ticket_resolved(all_closed_tickets)
     # all closed tickets that were opened in the last 60 days.
@@ -1685,7 +1685,7 @@ def date_rel_to_today(today, offset):
 
 def sort_string(begin, end):
     return 'sort=created&date_from=%s&date_to=%s&status=%s&status=%s&status=%s' % (
-        begin, end, Ticket.OPEN_STATUS, Ticket.REOPENED_STATUS, Ticket.RESOLVED_STATUS)
+        begin, end, Ticket.OPEN_STATUS, Ticket.REOPENED_STATUS, Ticket.COMPLETED_STATUS)
 
 
 @helpdesk_staff_member_required

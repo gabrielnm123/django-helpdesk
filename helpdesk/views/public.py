@@ -217,14 +217,14 @@ class ViewTicket(TemplateView):
         except (ObjectDoesNotExist, ValueError):
             return SearchForTicketView.as_view()(request, _('Invalid ticket ID or e-mail address. Please try again.'))
 
-        if 'close' in request.GET and ticket.status == Ticket.RESOLVED_STATUS:
+        if 'close' in request.GET and ticket.status == Ticket.COMPLETED_STATUS:
             from helpdesk.update_ticket import update_ticket
             update_ticket(
                 request.user,
                 ticket,
                 public=True,
                 comment=_('Submitter accepted resolution and closed ticket'),
-                new_status=Ticket.CLOSED_STATUS,
+                new_status=Ticket.COMPLETED_STATUS,
             )
             return HttpResponseRedirect(ticket.ticket_url)
 

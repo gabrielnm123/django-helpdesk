@@ -138,14 +138,14 @@ def update_messages_sent_to_by_public_and_status(
     if public and (
         follow_up.comment or (
             follow_up.new_status in (
-                Ticket.RESOLVED_STATUS,
-                Ticket.CLOSED_STATUS
+                Ticket.COMPLETED_STATUS,
+                Ticket.COMPLETED_STATUS
             )
         )
     ):
-        if follow_up.new_status == Ticket.RESOLVED_STATUS:
+        if follow_up.new_status == Ticket.COMPLETED_STATUS:
             template = 'resolved_'
-        elif follow_up.new_status == Ticket.CLOSED_STATUS:
+        elif follow_up.new_status == Ticket.COMPLETED_STATUS:
             template = 'closed_'
         else:
             template = 'updated_'
@@ -172,17 +172,17 @@ def get_template_staff_and_template_cc(
 ) -> typing.Tuple[str, str]:
     if reassigned:
         template_staff = 'assigned_owner'
-    elif follow_up.new_status == Ticket.RESOLVED_STATUS:
+    elif follow_up.new_status == Ticket.COMPLETED_STATUS:
         template_staff = 'resolved_owner'
-    elif follow_up.new_status == Ticket.CLOSED_STATUS:
+    elif follow_up.new_status == Ticket.COMPLETED_STATUS:
         template_staff = 'closed_owner'
     else:
         template_staff = 'updated_owner'
     if reassigned:
         template_cc = 'assigned_cc'
-    elif follow_up.new_status == Ticket.RESOLVED_STATUS:
+    elif follow_up.new_status == Ticket.COMPLETED_STATUS:
         template_cc = 'resolved_cc'
-    elif follow_up.new_status == Ticket.CLOSED_STATUS:
+    elif follow_up.new_status == Ticket.COMPLETED_STATUS:
         template_cc = 'closed_cc'
     else:
         template_cc = 'updated_cc'
@@ -338,9 +338,9 @@ def update_ticket(
                 )
 
     if new_status in (
-        Ticket.RESOLVED_STATUS, Ticket.CLOSED_STATUS
+        Ticket.COMPLETED_STATUS, Ticket.COMPLETED_STATUS
     ) and (
-        new_status == Ticket.RESOLVED_STATUS or ticket.resolution is None
+        new_status == Ticket.COMPLETED_STATUS or ticket.resolution is None
     ):
         ticket.resolution = comment
 
