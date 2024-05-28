@@ -8,6 +8,7 @@ cd /opt/django-helpdesk/standalone/
 python manage.py makemigrations --noinput
 python manage.py migrate --noinput                # Apply database migrations
 python manage.py createsuperuser --noinput
+python manage.py collectstatic --noinput
 
 # Starting cron to check emails
 printenv > /etc/env
