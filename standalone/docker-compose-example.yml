@@ -19,7 +19,6 @@ services:
     volumes:
       - /tmp/django-helpdesk-data:/data/
       - ./custom_navigation_header.html:/opt/django-helpdesk/helpdesk/templates/helpdesk/custom_navigation_header.html
-      - ./static:/static
     env_file:
       - docker.env
     depends_on:
