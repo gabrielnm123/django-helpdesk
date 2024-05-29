@@ -30,5 +30,3 @@ demo/demodesk/media/helpdesk/attachments/DH-3/4/*
 __pycache__
 
 standalone/static
-standalone/docker-compose.yml
-standalone/nginx/default.conf
