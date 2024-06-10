@@ -1940,7 +1940,7 @@ msgstr "Segure a tecla Ctrl para poder selecionar mais de opção"
 
 #: templates/helpdesk/ticket_list.html:116
 msgid "Status(es)"
-msgstr "Status"
+msgstr "Andamentos"
 
 #: templates/helpdesk/ticket_list.html:122
 msgid "Date (From)"
