@@ -397,7 +397,7 @@
                         render: function (data, type, row, meta) {
                             return data.title;
                         },
-                        visible: false,
+                        visible: true,
                     },
                     {data: "status"},
                     {data: "created"},
@@ -416,7 +416,7 @@
                     {data: "time_spent", "visible": false},
                     {% endif %}
                     {% if helpdesk_settings.HELPDESK_KB_ENABLED %}
-                    {data: "kbitem"},
+                    {data: "kbitem", visible: false},
                     {% endif %}
                 ]
             });

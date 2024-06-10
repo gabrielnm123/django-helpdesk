@@ -2378,3 +2378,12 @@ msgstr "Lembrar Senha"
 
 msgid "Please Sign In"
 msgstr "Faça Login"
+
+msgid "Query Selection"
+msgstr "Seleção de Consulta"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "entries"
+msgstr "entradas"
