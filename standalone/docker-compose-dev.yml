@@ -58,6 +58,3 @@ services:
 networks:
   net:
     driver: bridge
-
-volumes:
-  static:
