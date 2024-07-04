@@ -2387,3 +2387,18 @@ msgstr "Mostrar"
 
 msgid "entries"
 msgstr "entradas"
+
+msgid "Browse..."
+msgstr "Procurar Arquivo..."
+
+msgid "No files selected."
+msgstr "Nenhum arquivo selecionado."
+
+msgid "Time spent"
+msgstr "Tempo gasto"
+
+msgid "Yes, make this update public."
+msgstr "Sim, torne esta atualização pública."
+
+msgid "Yes I Understand - Delete It Anyway"
+msgstr "Sim, eu entendo - excluí-lo de qualquer maneira"
