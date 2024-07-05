@@ -3,6 +3,7 @@ services:
     build: ./nginx
     volumes:
       - ./static:/static
+      - ./media:/data/media
     ports:
       - 80:80
     networks:
@@ -20,6 +21,7 @@ services:
       - /tmp/django-helpdesk-data:/data/
       - ./custom_navigation_header.html:/opt/django-helpdesk/helpdesk/templates/helpdesk/custom_navigation_header.html
       - ./static:/static
+      - ./media:/data/media
       - ../.:/opt/django-helpdesk
     env_file:
       - docker.env
