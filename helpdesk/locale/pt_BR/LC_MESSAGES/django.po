@@ -2420,3 +2420,6 @@ msgstr "Click"
 
 msgid "for detailed average by month."
 msgstr "para média detalhada por mês."
+
+msgid "Days until ticket closed by Month"
+msgstr "Dias até o fechamento do bilhete por mês"
