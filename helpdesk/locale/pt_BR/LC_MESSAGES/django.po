@@ -2402,3 +2402,9 @@ msgstr "Sim, torne esta atualização pública."
 
 msgid "Yes I Understand - Delete It Anyway"
 msgstr "Sim, eu entendo - excluí-lo de qualquer maneira"
+
+msgid "View Tickets"
+msgstr "Ver Tickets"
+
+msgid "No tickets in this range"
+msgstr "Não há tickets nesta faixa"

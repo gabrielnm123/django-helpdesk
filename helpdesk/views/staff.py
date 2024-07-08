@@ -1269,9 +1269,10 @@ def report_index(request):
         dash_ticket = {
             'queue': queue.id,
             'name': queue.title,
-            'open': queue.ticket_set.filter(status__in=[1, 2, 4]).count(),
-            'resolved': queue.ticket_set.filter(status=3).count(),
-            'closed': queue.ticket_set.filter(status=3).count(),
+            'open': queue.ticket_set.filter(status=1).count(),
+            'completed': queue.ticket_set.filter(status=3).count(),
+            'reopened': queue.ticket_set.filter(status=2).count(),
+            'pending': queue.ticket_set.filter(status=4).count(),
             'time_spent': format_time_spent(queue.time_spent),
             'dedicated_time': format_time_spent(queue.dedicated_time)
         }
