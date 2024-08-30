@@ -35,7 +35,7 @@ services:
       - 8000
 
   postgres:
-    image: postgres:12-bullseye
+    image: postgres
     volumes:
       - /data/django-helpdesk:/var/lib/postgresql/data
     env_file:

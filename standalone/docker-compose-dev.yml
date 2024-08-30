@@ -36,7 +36,7 @@ services:
       - 8000
 
   postgres:
-    image: postgres:12-bullseye
+    image: postgres
     volumes:
       - ./db-dev:/var/lib/postgresql/data
     env_file:
