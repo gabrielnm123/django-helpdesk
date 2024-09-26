@@ -11,6 +11,11 @@ services:
     depends_on:
       - django-helpdesk
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   django-helpdesk:
     build:
@@ -34,6 +39,11 @@ services:
     tty: true
     expose:
       - 8000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   postgres:
     image: postgres:12-bullseye
@@ -46,6 +56,11 @@ services:
     restart: unless-stopped
     expose:
       - 5432
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   adminer:
     image: adminer
@@ -56,6 +71,11 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   net:
