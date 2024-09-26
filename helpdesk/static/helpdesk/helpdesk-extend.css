@@ -101,12 +101,17 @@ pre {
 	border: 1pt solid white;
 }
 
-table .tickettitle {
-  max-width: 250px;
+.tickettitle {
+  white-space: normal; /* Permite que o texto quebre em múltiplas linhas */
+  overflow-wrap: break-word; /* Quebra o texto longo dentro da célula */
+  word-break: break-word; /* Quebra palavras longas dentro da célula */
+  max-width: 100%; /* Usa toda a largura disponível da célula */
   font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.table-responsive {
+  overflow-x: auto; /* Permite o scroll horizontal se a tabela for muito larga */
+  width: 100%; /* Garante que a tabela use todo o espaço disponível */
 }
 
 .handle {
